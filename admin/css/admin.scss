@@ -1,0 +1,89 @@
+.wrap h1 {
+    margin: 1em 0 0 0;
+    display: inline-block;
+}
+
+.mc-nav-links {
+    text-decoration: none;
+
+    .dashicons {
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        vertical-align: sub;
+    }
+}
+
+.mc__card {
+    background-color: #dfdfdf;
+    border: 1px grey dashed;
+    border-radius: 8px;
+    aspect-ratio: 1;
+    padding: 8px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+    position: relative;
+
+    &--list {
+        display: grid;
+        gap: 16px;
+
+        @media screen and (width > 560px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media screen and (width > 768px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media screen and (width > 1200px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media screen and (width > 1600px) {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: .5em;
+    }
+
+    .card__remove {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        padding: 16px;
+        cursor: pointer;
+        transition: all .25s ease-in-out;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0%;
+            height: 0%;
+            aspect-ratio: 1;
+            border-radius: 100%;
+            transition: all .25s ease-in-out;
+        }
+
+        &:hover {
+            color: red;
+
+            &::after {
+                width: 70%;
+                height: 70%;
+                background: #ff000025;
+            }
+        }
+    }
+}
