@@ -1,19 +1,24 @@
 <?php
+
+/**
+ * When form is submitted, values must be saved in DB
+ */
+
+ if ( isset($_POST) && count($_POST) > 0 ) {
+    include "carousel-update.php";
+}
+
+/**
+ * After saving changes, the editor content is shown
+ */
 function addCardBtn() {
     ?>
-    <li class="page-title-action mc__card--add" data-new-card="<?php echo plugin_dir_url( __FILE__ )."../components/card.php"; ?>">
-        Add card
-    </li>
+    <li class="page-title-action mc__card--add" data-new-card="<?php echo plugin_dir_url( __FILE__ )."../components/card.php"; ?>">Add card</li>
     <?php
 }
 
 function regularCard() {
     include plugin_dir_path( __DIR__ )."components/card.php";
-}
-
-if ( isset($_POST) && count($_POST) > 0 ) {
-   print_r($_POST);
-   echo '<hr>';
 }
 ?>
 
@@ -21,13 +26,14 @@ if ( isset($_POST) && count($_POST) > 0 ) {
 <p>
     <a class="mc-nav-links" href="/wp-admin/admin.php?page=my-carousel"><span class="dashicons dashicons-arrow-left-alt"></span> Go back</a>
 </p>
-<!-- configure carousel -->
-<form method="post" id="mc-edit-carousel">
+
+<!-- My Carousel edition form -->
+<form method="post" id="mc-carousel-edit">
     <?php addCardBtn(); ?>
+    <input type="hidden" name="carousel__id" value="">
     <ul class="mc__card--list">
     </ul>
     <p class="submit">
         <input type="submit" class="button-primary" value="Save Changes">
     </p>
 </form>
-<!-- Create a new carousel in the database -->

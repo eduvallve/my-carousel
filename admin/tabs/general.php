@@ -9,7 +9,7 @@ function headingCells() {
 }
 ?>
 <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
-<a href="?page=my-carousel&tab=new-carousel" class="page-title-action">Add New Carousel</a>
+<a href="?page=my-carousel&tab=carousel-edit" class="page-title-action">Add New Carousel</a>
 <div id="mc__admin--list">
     <div class="col-container">
         <table class="striped widefat">

@@ -4,8 +4,11 @@
 
 const cfgMcAdmin = {
     selectors: {
+        general: {
+            infoSpot: '.dashicons-info[title]'
+        },
         carousel: {
-            editPage: '#mc-edit-carousel',
+            editPage: '#mc-carousel-edit',
             addCardBtn: '.mc__card--add',
             cardList: '.mc__card--list'
         },
@@ -48,7 +51,6 @@ class EditMcCarousel extends BasicMcComponent {
 
     addEventListeners() {
         this.addCardBtn.addEventListener('click', this.addCard.bind(this));
-        // console.log(this.el.querySelectorAll(cfgMcAdmin.selectors.card.removeBtn));
     }
 
     addCard() {
@@ -74,9 +76,12 @@ class EditMcCarousel extends BasicMcComponent {
             const card = doc.querySelector('.mc__card').innerHTML;
             const li = document.createElement('li');
             li.classList.add('mc__card');
-            li.addEventListener('click', e => { this.cardClicked(e); })
+            li.addEventListener('click', e => { this.cardClicked(e); });
             li.innerHTML = card;
             this.cardList.append(li);
+            this.cardList.querySelectorAll(cfgMcAdmin.selectors.general.infoSpot).forEach(infoSpot => {
+                new InfoSpot(infoSpot);
+            });
         });
     }
 }

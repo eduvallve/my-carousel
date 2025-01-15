@@ -31,8 +31,8 @@ function mycarousel_admin_page(){
       // case 'translate':
       //   require_once 'tabs/translate/translate.php';
       //   break;
-      case 'new-carousel':
-        require_once 'tabs/new-carousel.php';
+      case 'carousel-edit':
+        require_once 'tabs/carousel-edit.php';
         break;
       default:
         require_once 'tabs/general.php';

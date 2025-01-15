@@ -19,7 +19,7 @@
     border: 1px grey dashed;
     border-radius: 8px;
     aspect-ratio: 1;
-    padding: 8px;
+    padding: 48px 8px 8px 8px;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -53,15 +53,26 @@
         display: flex;
         align-items: center;
         gap: .5em;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .note__info {
+        width: 100%;
+        max-width: 200px;
     }
 
     .card__remove {
         position: absolute;
-        top: 8px;
-        right: 8px;
-        padding: 16px;
+        top: 0;
+        right: 0;
+        padding: 8px;
         cursor: pointer;
         transition: all .25s ease-in-out;
+
+        @media screen and (width > 320px) {
+            padding: 16px;
+        }
 
         &::after {
             content: '';
