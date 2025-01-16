@@ -1,0 +1,70 @@
+body {
+    background-color: lightgrey!important;
+}
+
+.mc__carousel {
+    margin: 24px 0;
+
+    .swiper {
+        border-radius: 16px;
+    }
+}
+
+.mc__swiper__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    aspect-ratio: 2 / 3;
+    border-radius: 16px;
+    overflow: hidden;
+    color: #3B3F5C;
+    font-family: sans-serif;
+
+    &__img {
+        aspect-ratio: 4 / 3;
+        height: -webkit-fill-available;
+    }
+
+    &__asset {
+        object-fit: cover;
+        min-height: 100%;
+        object-position: center;
+    }
+
+    &__content {
+        padding: clamp(.5rem, 1.5vw, 1rem);
+        background-color: white;
+    }
+
+    &__title {
+        font-size: clamp(1.25rem, 3vw, 2rem);
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__subtitle {
+        font-size: clamp(.9rem, 3.25vw, 1rem);
+        margin: 8px 0 0;
+        font-weight: lighter;
+    }
+
+    &__btn {
+        margin: 16px 0 0;
+        padding: clamp(0.5rem, 0.5vw, 1rem);
+        background-color: red;
+        border-radius: 32px;
+        color: white;
+        text-align: center;
+        display: block;
+        font-size: clamp(.75rem, 2vw, 1rem);
+        font-weight: bold;
+
+        @media screen and (width > 560px) {
+            font-weight: normal;
+        }
+    }
+}
+
+.page-content a.mc__swiper__card {
+    text-decoration: none;
+}

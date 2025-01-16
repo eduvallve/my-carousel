@@ -12,7 +12,7 @@ function formattedData() {
             }
         }
     }
-    return json_encode($formattedData);
+    return json_encode($formattedData, JSON_UNESCAPED_UNICODE);
 }
 
 // Create carousel db table if it does not exist

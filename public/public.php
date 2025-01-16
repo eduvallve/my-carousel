@@ -4,7 +4,7 @@ function mycarousel_enqueue_public() {
     wp_enqueue_script('swiperjs', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js');
     wp_enqueue_style('swiperjs', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
     wp_enqueue_script('my_carousel_custom_script', plugin_dir_url(__FILE__) . 'js/public.js');
-    // wp_enqueue_style('my_carousel_custom_style', plugin_dir_url(__FILE__) . 'css/public.css');
+    wp_enqueue_style('my_carousel_custom_style', plugin_dir_url(__FILE__) . 'css/public.css');
 }
 
 add_action('wp_enqueue_scripts', 'mycarousel_enqueue_public');

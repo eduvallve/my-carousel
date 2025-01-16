@@ -40,8 +40,7 @@ class Carousel extends BasicMcComponent {
         prevEl: ".swiper-button-prev",
       },
       scrollbar: {
-        el: '.swiper-scrollbar',
-        draggable: true,
+        enabled: false,
       },
       slidesPerView: 4,
       spaceBetween: 20,

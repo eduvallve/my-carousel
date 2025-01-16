@@ -1,0 +1,66 @@
+body {
+  background-color: lightgrey !important;
+}
+
+.mc__carousel {
+  margin: 24px 0;
+}
+.mc__carousel .swiper {
+  border-radius: 16px;
+}
+
+.mc__swiper__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  aspect-ratio: 2/3;
+  border-radius: 16px;
+  overflow: hidden;
+  color: #3B3F5C;
+  font-family: sans-serif;
+}
+.mc__swiper__card__img {
+  aspect-ratio: 4/3;
+  height: -webkit-fill-available;
+}
+.mc__swiper__card__asset {
+  object-fit: cover;
+  min-height: 100%;
+  object-position: center;
+}
+.mc__swiper__card__content {
+  padding: clamp(0.5rem, 1.5vw, 1rem);
+  background-color: white;
+}
+.mc__swiper__card__title {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: bold;
+  margin: 0;
+}
+.mc__swiper__card__subtitle {
+  font-size: clamp(0.9rem, 3.25vw, 1rem);
+  margin: 8px 0 0;
+  font-weight: lighter;
+}
+.mc__swiper__card__btn {
+  margin: 16px 0 0;
+  padding: clamp(0.5rem, 0.5vw, 1rem);
+  background-color: red;
+  border-radius: 32px;
+  color: white;
+  text-align: center;
+  display: block;
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  font-weight: bold;
+}
+@media screen and (width > 560px) {
+  .mc__swiper__card__btn {
+    font-weight: normal;
+  }
+}
+
+.page-content a.mc__swiper__card {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=public.css.map */
