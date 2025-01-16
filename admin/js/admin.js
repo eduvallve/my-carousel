@@ -5,7 +5,7 @@
 const cfgMcAdmin = {
     selectors: {
         general: {
-            infoSpot: '.dashicons-info[title]'
+            // infoSpot: '.dashicons-info[title]'
         },
         carousel: {
             editPage: '#mc-carousel-edit',
@@ -14,12 +14,16 @@ const cfgMcAdmin = {
         },
         card: {
             card: '.mc__card',
-            removeBtn: '.card__remove'
+            removeBtn: '.mc__card__remove',
+            showHideBtn: '.mc__card__showhide',
+            showHideStates: '.mc__card__showhide__state',
+            cardVisibility: '.mc__card__visibility'
         }
     },
      classes: {
         card: {
-            removeBtn: 'card__remove'
+            removeBtn: 'mc__card__remove',
+            showHideBtn: 'mc__card__showhide',
         }
      }
 }
@@ -45,12 +49,21 @@ class EditMcCarousel extends BasicMcComponent {
 
     setRefs() {
         this.addCardBtn = this.el.querySelector(cfgMcAdmin.selectors.carousel.addCardBtn);
+        this.removeCardBtns = this.el.querySelectorAll(cfgMcAdmin.selectors.card.removeBtn);
+        this.showHideBtns = this.el.querySelectorAll(cfgMcAdmin.selectors.card.showHideBtn);
         this.newCardUrl = this.addCardBtn.dataset.newCard;
         this.cardList = this.el.querySelector(cfgMcAdmin.selectors.carousel.cardList);
     }
 
     addEventListeners() {
         this.addCardBtn.addEventListener('click', this.addCard.bind(this));
+        // console.log(this.el);
+        this.removeCardBtns.forEach(removeBtn => {
+            removeBtn.addEventListener('click', e => this.removeCard(e.target));
+        });
+        this.showHideBtns.forEach(showHideBtn => {
+            showHideBtn.addEventListener('click', e => this.toggleShowHide(e.target));
+        })
     }
 
     addCard() {
@@ -60,6 +73,8 @@ class EditMcCarousel extends BasicMcComponent {
     cardClicked(e) {
         if (e.target.classList.contains(cfgMcAdmin.classes.card.removeBtn)) {
             this.removeCard(e.target);
+        } else if (e.target.classList.contains(cfgMcAdmin.classes.card.showHideBtn)) {
+            this.toggleShowHide(e.target);
         }
     }
 
@@ -69,8 +84,23 @@ class EditMcCarousel extends BasicMcComponent {
         card.remove();
     }
 
+    toggleShowHide(target) {
+        // if(target.dataset.cardVisible === 'true') {
+        // }
+        target.querySelectorAll(cfgMcAdmin.selectors.card.showHideStates).forEach(state => {
+            state.classList.toggle('hidden');
+        });
+        // target.dataset.cardVisible = !target.dataset.cardVisible;
+        const state = target.querySelector(cfgMcAdmin.selectors.card.cardVisibility);
+        state.value = state.value === 'true' ? 'false' : 'true' ;
+    }
+
     fileGetContents(filename) {
-        fetch(filename).then((resp) => resp.text()).then(data => {
+        fetch(filename, {
+            headers: {
+                "Content-Type": "text/plain"
+            }
+        }).then((resp) => resp.text()).then(data => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(data, 'text/html');
             const card = doc.querySelector('.mc__card').innerHTML;
@@ -79,9 +109,6 @@ class EditMcCarousel extends BasicMcComponent {
             li.addEventListener('click', e => { this.cardClicked(e); });
             li.innerHTML = card;
             this.cardList.append(li);
-            this.cardList.querySelectorAll(cfgMcAdmin.selectors.general.infoSpot).forEach(infoSpot => {
-                new InfoSpot(infoSpot);
-            });
         });
     }
 }

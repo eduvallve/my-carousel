@@ -1,11 +1,11 @@
 <?php
 function headingCells() {
-    echo '<tr>
-        <th scope="col">ID</th>
+    ?><tr>
+        <!-- <th scope="col">ID</th> -->
         <th scope="col">Title</th>
         <th scope="col">Shortcode</th>
-        <th scope="col">Actions</th>
-    </tr>';
+        <th scope="col">Active (actions)</th>
+    </tr><?php
 }
 ?>
 <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
@@ -17,13 +17,23 @@ function headingCells() {
                 <?php headingCells(); ?>
             </thead>
             <tbody>
-                <?php /* createPostListByType($postType, $allPostListData); */ ?>
-                <tr class="mc__admin--item">
-                    <td>a</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                <?php /* createPostListByType($postType, $allPostListData); */ 
+                $carousels = selectAllCarouselsList();
+                // print_r($carousels);
+                /* onclick="window.location.href='?page=my-carousel&tab=carousel-edit&carousel-id=<?php echo $carousel->id; ?>'" */
+                foreach($carousels as $carousel) {
+                    ?><tr class="mc__admin--item" >
+                        <!-- <td><?php echo $carousel->id; ?></td> -->
+                        <td class="has-row-actions"><?php echo $carousel->name; ?>
+                            <div class="row-actions"><span class="edit"><a href="?page=my-carousel&tab=carousel-edit&carousel-id=<?php echo $carousel->id; ?>" aria-label="Edit “<?php echo $carousel->name; ?>”">Edit</a>
+                            <!-- | </span><span class="trash"><a href="http://plugin-dev-local-environment.local/wp-admin/post.php?post=1&amp;action=trash&amp;_wpnonce=42d6865ad7" class="submitdelete" aria-label="Move “Hello world!” to the Trash">Trash</a></span> -->
+                        </div>
+                        </td>
+                        <td><pre><?php echo '[my-carousel-'.$carousel->id.']'; ?></pre></td>
+                        <td><?php echo $carousel->active; ?></td>
+                    </tr><?php
+                }
+                ?>
             </tbody>
             <tfoot>
                 <?php headingCells(); ?>

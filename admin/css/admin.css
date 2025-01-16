@@ -13,12 +13,33 @@
   vertical-align: sub;
 }
 
+#mc__admin--list {
+  margin-top: 24px;
+}
+
+.mc__admin--item pre {
+  margin: 0;
+  border: 1px solid #c3c4c7;
+  padding: 4px 8px;
+  width: fit-content;
+  border-radius: 3px;
+  background-color: #f7f7f7;
+  font-size: 0.9em;
+}
+
+.mc__carousel__name {
+  display: flex;
+  align-items: center;
+  margin: 1em 0 1.5em;
+  gap: 0.5em;
+  font-size: 1.5em;
+}
+
 .mc__card {
   background-color: #dfdfdf;
   border: 1px grey dashed;
   border-radius: 8px;
-  aspect-ratio: 1;
-  padding: 48px 8px 8px 8px;
+  padding: 8px 0 16px 0;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -58,24 +79,32 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.mc__card label[for=mc__card__img__alt] input {
+  background-color: #dfdfdf;
+  border-style: dashed;
+}
 .mc__card .note__info {
   width: 100%;
   max-width: 200px;
 }
-.mc__card .card__remove {
-  position: absolute;
-  top: 0;
-  right: 0;
+.mc__card__actions {
+  width: calc(100% - 16px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mc__card__showhide, .mc__card__remove {
+  position: relative;
   padding: 8px;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
 }
 @media screen and (width > 320px) {
-  .mc__card .card__remove {
+  .mc__card__showhide, .mc__card__remove {
     padding: 16px;
   }
 }
-.mc__card .card__remove::after {
+.mc__card__showhide::after, .mc__card__remove::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -87,13 +116,34 @@
   border-radius: 100%;
   transition: all 0.25s ease-in-out;
 }
-.mc__card .card__remove:hover {
+.mc__card__showhide {
+  padding: 16px;
+}
+.mc__card__showhide__state:not(.hidden) {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.mc__card__showhide:hover {
+  color: #1e90ff;
+}
+.mc__card__showhide:hover::after {
+  width: 100%;
+  height: 70%;
+  background: rgba(30, 144, 255, 0.1450980392);
+  border-radius: 56px;
+}
+.mc__card__remove:hover {
   color: red;
 }
-.mc__card .card__remove:hover::after {
+.mc__card__remove:hover::after {
   width: 70%;
   height: 70%;
   background: rgba(255, 0, 0, 0.1450980392);
+}
+.mc__card:has(.mc__card__visibility[value=false]) {
+  opacity: 0.65;
+  background-color: transparent;
 }
 
 /*# sourceMappingURL=admin.css.map */

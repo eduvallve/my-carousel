@@ -10,7 +10,6 @@ function createMyCarouselTable() {
         active bool NOT NULL,
         PRIMARY KEY (id)
     ) ENGINE=MyISAM DEFAULT CHARSET=latin1;";
-    // print($query_createMyCarousel_table);
     $createMyCarousel_table = $GLOBALS['wpdb']->query($GLOBALS['wpdb']-> prepare($query_createMyCarousel_table));
 }
 ?>

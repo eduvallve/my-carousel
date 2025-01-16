@@ -1,7 +1,4 @@
-Hello:
 <?php
-print_r($_POST);
-echo '<hr>';
 
 /**
  * Format POST data
@@ -9,25 +6,31 @@ echo '<hr>';
 function formattedData() {
     $formattedData = [];
     foreach ($_POST as $tag => $dataList) {
-        if ($tag !== 'carousel__id') {
+        if ($tag !== 'carousel__id' && $tag !== 'carousel__name') {
             foreach ($dataList as $index => $data) {
-                // print_r($data); echo $tag.'<hr>';
                 $formattedData[$index][$tag] = $data;
             }
         }
     }
-    print_r($formattedData); echo '<hr>';
+    return json_encode($formattedData);
 }
 
 // Create carousel db table if it does not exist
 createMyCarouselTable();
-formattedData();
+// Format content data in a JSON style
+$content = formattedData();
 
 if ($_POST['carousel__id'] === '') {
     // New carousel. Insert POST data
-    // insertCarousel(formattedData());
+    insertCarousel($_POST['carousel__name'], $content, '', '', true);
+    ?>
+    <script>
+        window.location.href = `${window.location.href}?page=my-carousel&tab=carousel-edit&carousel-id=<?php echo selectLatestId(); ?>`;
+    </script>
+    <?php
 } else {
     // Existing carousel. Update POST data
     // updateCarousel();
+    updateCarousel($_POST['carousel__id'], $_POST['carousel__name'], $content, '', '', true);
 }
 ?>
