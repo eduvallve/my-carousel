@@ -45,7 +45,6 @@ if (isset($_GET) && isset($_GET['carousel-id']) && $_GET['carousel-id'] !== '') 
         echo 'Carousel not found.';
         return ''; // Stop rendering if no carousel data is found.
     }
-    // print_r($data);
     $c__name = $data->name;
     $c__id = $data->id;
     $c__content = $data->content;

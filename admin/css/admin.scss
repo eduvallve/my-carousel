@@ -14,22 +14,18 @@
     }
 }
 
-#mc__admin {
-    &--list {
-        margin-top: 24px;
-    }
+#mc__admin--list {
+    margin-top: 24px;
 }
 
-.mc__admin {
-    &--item pre {
-        margin: 0;
-        border: 1px solid #c3c4c7;
-        padding: 4px 8px;
-        width: fit-content;
-        border-radius: 3px;
-        background-color: #f7f7f7;
-        font-size: .9em;
-    }
+.mc__admin--item pre {
+    margin: 0;
+    border: 1px solid #c3c4c7;
+    padding: 4px 8px;
+    width: fit-content;
+    border-radius: 3px;
+    background-color: #f7f7f7;
+    font-size: .9em;
 }
 
 .mc__carousel__name {
@@ -101,9 +97,6 @@
 
     &__showhide,
     &__remove {
-        // position: absolute;
-        // top: 0;
-        // right: 0;
         position: relative;
         padding: 8px;
         cursor: pointer;

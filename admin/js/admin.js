@@ -4,9 +4,6 @@
 
 const cfgMcAdmin = {
     selectors: {
-        general: {
-            // infoSpot: '.dashicons-info[title]'
-        },
         carousel: {
             editPage: '#mc-carousel-edit',
             addCardBtn: '.mc__card--add',
@@ -57,7 +54,6 @@ class EditMcCarousel extends BasicMcComponent {
 
     addEventListeners() {
         this.addCardBtn.addEventListener('click', this.addCard.bind(this));
-        // console.log(this.el);
         this.removeCardBtns.forEach(removeBtn => {
             removeBtn.addEventListener('click', e => this.removeCard(e.target));
         });
@@ -80,17 +76,13 @@ class EditMcCarousel extends BasicMcComponent {
 
     removeCard(target) {
         const card = target.closest(cfgMcAdmin.selectors.card.card);
-        // console.log('remove', card);
         card.remove();
     }
 
     toggleShowHide(target) {
-        // if(target.dataset.cardVisible === 'true') {
-        // }
         target.querySelectorAll(cfgMcAdmin.selectors.card.showHideStates).forEach(state => {
             state.classList.toggle('hidden');
         });
-        // target.dataset.cardVisible = !target.dataset.cardVisible;
         const state = target.querySelector(cfgMcAdmin.selectors.card.cardVisibility);
         state.value = state.value === 'true' ? 'false' : 'true' ;
     }

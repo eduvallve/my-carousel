@@ -30,7 +30,6 @@ if ($_POST['carousel__id'] === '') {
     <?php
 } else {
     // Existing carousel. Update POST data
-    // updateCarousel();
     updateCarousel($_POST['carousel__id'], $_POST['carousel__name'], $content, '', '', true);
 }
 ?>
