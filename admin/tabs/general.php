@@ -29,7 +29,7 @@ function headingCells() {
                             <!-- | </span><span class="trash"><a href="http://plugin-dev-local-environment.local/wp-admin/post.php?post=1&amp;action=trash&amp;_wpnonce=42d6865ad7" class="submitdelete" aria-label="Move “Hello world!” to the Trash">Trash</a></span> -->
                         </div>
                         </td>
-                        <td><pre><?php echo '[my-carousel-'.$carousel->id.']'; ?></pre></td>
+                        <td><pre><?php echo '[my-carousel id="'.$carousel->id.'"]'; ?></pre></td>
                         <td><?php echo $carousel->active; ?></td>
                     </tr><?php
                 }
