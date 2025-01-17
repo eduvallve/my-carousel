@@ -3,7 +3,7 @@ function headingCells() {
     ?><tr>
         <th scope="col">Title</th>
         <th scope="col">Shortcode</th>
-        <th scope="col">Status</th>
+        <!-- <th scope="col">Status</th> -->
         <th scope="col">Author</th>
         <th scope="col">Date</th>
     </tr><?php
@@ -29,9 +29,9 @@ function headingCells() {
                         </div>
                         </td>
                         <td><pre><?php echo '[my-carousel id="'.$carousel->id.'"]'; ?></pre></td>
-                        <td class="has-row-actions"><?php echo $carousel->car_status === '1' ? 'Published' : 'Not published'; ?>
+                        <!-- <td class="has-row-actions"><?php echo $carousel->car_status === '1' ? 'Published' : 'Not published'; ?>
                             <div class="row-actions"><span class="edit"><a href="#<?php echo $carousel->id; ?>" aria-label="Publish “<?php echo $carousel->car_name; ?>”"><span class="row-actions-toggle-state"><?php echo $carousel->car_status === '1' ? 'Unpublish <span class="dashicons dashicons-hidden"></span>' : 'Puiblish <span class="dashicons dashicons-visibility"></span>'; ?></span></a>
-                        </td>
+                        </td> -->
                         <td><?php echo $carousel->car_author; ?></td>
                         <td>Created<br><?php echo $carousel->car_date; ?></td>
                     </tr><?php

@@ -61,10 +61,12 @@ function buildCarousel($id) {
     <div class="mc__carousel">
         <!-- Slider main container -->
         <div class="swiper">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <?php buildCards($id); ?>
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <?php buildCards($id); ?>
+                </div>
             </div>
             <!-- If we need pagination -->
             <div class="swiper-pagination"></div>
@@ -78,8 +80,15 @@ function buildCarousel($id) {
     <?php
 }
 
+
 function show_my_carousel($params) {
-    $id = $params['id'];
-    buildCarousel($id);
+    if (!is_admin()) {
+        $id = $params['id'];
+        ?>
+        <div class="mc__carousel--<?php echo $id; ?>">
+            <?php buildCarousel($id); ?>
+        </div>
+        <?php
+    }
 }
 ?>

@@ -1,16 +1,33 @@
 body {
-  background-color: lightgrey !important;
+  background-color: #FFF2B2 !important;
 }
 
 .mc__carousel {
   margin: 24px 0;
+  position: relative;
+  padding-bottom: 48px;
 }
 .mc__carousel .swiper {
-  border-radius: 16px;
   overflow: visible;
 }
+.mc__carousel .swiper-container {
+  overflow: hidden;
+}
+.mc__carousel .swiper-pagination, .mc__carousel .swiper-button-prev, .mc__carousel .swiper-button-next {
+  bottom: -24px;
+  top: unset;
+  transform: translateY(50%);
+}
 
-.mc__swiper__card {
+@media screen and (width >= 600px) {
+  .mc__carousel--12 .mc__carousel {
+    padding-bottom: 0;
+  }
+}
+.mc__carousel--12 .mc__carousel .swiper {
+  border-radius: 16px;
+}
+.mc__carousel--12 .mc__swiper__card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -20,14 +37,15 @@ body {
   font-family: sans-serif;
   background-color: white;
   border-radius: 16px;
+  text-decoration: none;
 }
-.mc__swiper__card__img {
+.mc__carousel--12 .mc__swiper__card__img {
   aspect-ratio: 1;
   overflow: hidden;
   display: flex;
   height: 100%;
 }
-.mc__swiper__card__asset {
+.mc__carousel--12 .mc__swiper__card__asset {
   object-fit: cover;
   object-position: center;
   min-height: 100%;
@@ -35,44 +53,93 @@ body {
   width: auto;
   height: auto;
 }
-.mc__swiper__card__content {
+.mc__carousel--12 .mc__swiper__card__content {
   padding: clamp(0.5rem, 1.5vw, 1rem);
 }
-.mc__swiper__card__content.hidden {
+.mc__carousel--12 .mc__swiper__card__content.hidden {
   display: none;
 }
-.mc__swiper__card__content > *:first-child {
+.mc__carousel--12 .mc__swiper__card__content > *:first-child {
   margin-top: 0;
 }
-.mc__swiper__card__title {
+.mc__carousel--12 .mc__swiper__card__title {
   font-size: clamp(1.25rem, 3vw, 2rem);
   font-weight: bold;
   margin: 0;
 }
-.mc__swiper__card__subtitle {
+.mc__carousel--12 .mc__swiper__card__subtitle {
   font-size: clamp(0.9rem, 3.25vw, 1rem);
   margin: 8px 0 0;
   font-weight: lighter;
 }
-.mc__swiper__card__btn {
+.mc__carousel--12 .mc__swiper__card__btn {
   margin: 16px 0 0;
   padding: clamp(0.5rem, 0.5vw, 1rem);
-  background-color: red;
   border-radius: 32px;
   color: white;
   text-align: center;
   display: block;
   font-size: clamp(0.75rem, 2vw, 1rem);
   font-weight: bold;
+  cursor: pointer;
+  background-color: #FC5C66;
+  transition: all 0.25s ease-in-out;
 }
 @media screen and (width > 560px) {
-  .mc__swiper__card__btn {
+  .mc__carousel--12 .mc__swiper__card__btn {
     font-weight: normal;
   }
 }
-
-.page-content a.mc__swiper__card {
+.mc__carousel--12 .mc__swiper__card__btn:hover {
+  background-color: red;
+}
+.mc__carousel--12 .page-content a.mc__swiper__card {
   text-decoration: none;
+}
+.mc__carousel--12 .swiper-button-prev,
+.mc__carousel--12 .swiper-button-next {
+  color: #3B3F5C;
+  width: 24px;
+  height: 24px;
+  bottom: -16px;
+  top: unset;
+  transform: translate(0px, 100%);
+}
+@media screen and (width >= 600px) {
+  .mc__carousel--12 .swiper-button-prev,
+.mc__carousel--12 .swiper-button-next {
+    bottom: unset;
+    width: 48px;
+    height: 100%;
+    top: 0;
+    margin: 0;
+  }
+}
+.mc__carousel--12 .swiper-button-prev::after,
+.mc__carousel--12 .swiper-button-next::after {
+  font-size: 24px;
+}
+@media screen and (width >= 600px) {
+  .mc__carousel--12 .swiper-button-prev {
+    transform: translateX(-100%);
+    left: 0;
+  }
+  .mc__carousel--12 .swiper-button-next {
+    transform: translateX(100%);
+    right: 0;
+  }
+}
+.mc__carousel--12 .swiper-pagination {
+  height: 24px;
+  bottom: -16px;
+  top: unset;
+  transform: translate(0px, 100%);
+  color: #3B3F5C;
+}
+@media screen and (width >= 600px) {
+  .mc__carousel--12 .swiper-pagination {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=public.css.map */

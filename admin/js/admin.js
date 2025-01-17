@@ -45,15 +45,17 @@ class EditMcCarousel extends BasicMcComponent {
     }
 
     setRefs() {
-        this.addCardBtn = this.el.querySelector(cfgMcAdmin.selectors.carousel.addCardBtn);
+        this.addCardBtns = this.el.querySelectorAll(cfgMcAdmin.selectors.carousel.addCardBtn);
         this.removeCardBtns = this.el.querySelectorAll(cfgMcAdmin.selectors.card.removeBtn);
         this.showHideBtns = this.el.querySelectorAll(cfgMcAdmin.selectors.card.showHideBtn);
-        this.newCardUrl = this.addCardBtn.dataset.newCard;
         this.cardList = this.el.querySelector(cfgMcAdmin.selectors.carousel.cardList);
     }
 
     addEventListeners() {
-        this.addCardBtn.addEventListener('click', this.addCard.bind(this));
+        this.addCardBtns.forEach(addBtn =>  {
+            addBtn.addEventListener('click', this.addCard.bind(this));
+            this.newCardUrl = addBtn.dataset.newCard;
+        });
         this.removeCardBtns.forEach(removeBtn => {
             removeBtn.addEventListener('click', e => this.removeCard(e.target));
         });

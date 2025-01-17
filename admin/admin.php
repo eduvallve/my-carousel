@@ -28,8 +28,8 @@ function my_admin_menu_my_carousel() {
 }
 
 function mycarousel_enqueue() {
-    wp_enqueue_script('swiperjs', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js');
-    wp_enqueue_style('swiperjs', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
+    // wp_enqueue_script('swiperjs', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js');
+    // wp_enqueue_style('swiperjs', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
     wp_enqueue_script('my_carousel_custom_script', plugin_dir_url(__FILE__) . 'js/admin.js');
     wp_enqueue_style('my_carousel_custom_style', plugin_dir_url(__FILE__) . 'css/admin.css');
 }
