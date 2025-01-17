@@ -7,30 +7,42 @@ body {
 }
 .mc__carousel .swiper {
   border-radius: 16px;
+  overflow: visible;
 }
 
 .mc__swiper__card {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   aspect-ratio: 2/3;
-  border-radius: 16px;
   overflow: hidden;
   color: #3B3F5C;
   font-family: sans-serif;
+  background-color: white;
+  border-radius: 16px;
 }
 .mc__swiper__card__img {
-  aspect-ratio: 4/3;
-  height: -webkit-fill-available;
+  aspect-ratio: 1;
+  overflow: hidden;
+  display: flex;
+  height: 100%;
 }
 .mc__swiper__card__asset {
   object-fit: cover;
-  min-height: 100%;
   object-position: center;
+  min-height: 100%;
+  min-width: 100%;
+  width: auto;
+  height: auto;
 }
 .mc__swiper__card__content {
   padding: clamp(0.5rem, 1.5vw, 1rem);
-  background-color: white;
+}
+.mc__swiper__card__content.hidden {
+  display: none;
+}
+.mc__swiper__card__content > *:first-child {
+  margin-top: 0;
 }
 .mc__swiper__card__title {
   font-size: clamp(1.25rem, 3vw, 2rem);

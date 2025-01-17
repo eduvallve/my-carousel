@@ -1,5 +1,5 @@
 body {
-    background-color: lightgrey!important;
+    background-color: lightgrey !important;
 }
 
 .mc__carousel {
@@ -7,33 +7,47 @@ body {
 
     .swiper {
         border-radius: 16px;
+        overflow: visible;
     }
 }
 
 .mc__swiper__card {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     aspect-ratio: 2 / 3;
-    border-radius: 16px;
     overflow: hidden;
     color: #3B3F5C;
     font-family: sans-serif;
+    background-color: white;
+    border-radius: 16px;
 
     &__img {
-        aspect-ratio: 4 / 3;
-        height: -webkit-fill-available;
+        aspect-ratio: 1;
+        overflow: hidden;
+        display: flex;
+        height: 100%;
     }
 
     &__asset {
         object-fit: cover;
-        min-height: 100%;
         object-position: center;
+        min-height: 100%;
+        min-width: 100%;
+        width: auto;
+        height: auto;
     }
 
     &__content {
         padding: clamp(.5rem, 1.5vw, 1rem);
-        background-color: white;
+
+        &.hidden {
+            display: none;
+        }
+
+        &>*:first-child {
+            margin-top: 0;
+        }
     }
 
     &__title {

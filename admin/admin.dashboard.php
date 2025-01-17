@@ -19,6 +19,9 @@ function mycarousel_admin_page(){
       case 'carousel-edit':
         require_once 'tabs/carousel-edit.php';
         break;
+      case 'carousel-delete':
+        require_once 'tabs/carousel-delete.php';
+        break;
       default:
         require_once 'tabs/general.php';
         break;

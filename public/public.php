@@ -16,7 +16,7 @@ function buildCards($id) {
         return ''; // Stop rendering if no carousel data is found.
     }
 
-    $c__content = $data->content;
+    $c__content = $data->car_content;
 
     if(isset($c__content)) {
         $cards = json_decode($c__content);
@@ -34,15 +34,18 @@ function buildCards($id) {
                 ?>
                 <div class="swiper-slide">
                     <<?php echo $tag; ?> class="mc__swiper__card" <?php echo isset($url) && $url !== '' ? "href='${url}'" : '' ?>>
-                        <?php if(isset($img)) { ?>
+                        <?php if (isset($img) && $img !== '') {  ?>
                             <div class="mc__swiper__card__img">
                                 <img src="<?php echo $img; ?>" alt="<?php echo isset($alt) ? $alt : ''; ?>" class="mc__swiper__card__asset">
                             </div>
                         <?php } ?>
-                        <div class="mc__swiper__card__content">
-                            <?php if (isset($title)) { ?><h2 class="mc__swiper__card__title"><?php echo $title; ?></h2><?php } ?>
-                            <?php if (isset($subtitle)) { ?><p class="mc__swiper__card__subtitle"><?php echo $subtitle; ?></p><?php } ?>
-                            <?php if (isset($btn)) { ?><span class="mc__swiper__card__btn"><?php echo $btn; ?></span><?php } ?>
+                        <div class="mc__swiper__card__content <?php
+                        $noText = (!isset($title) || $title === '') && (!isset($subtitle) || $subtitle === '') && (!isset($btn) || $btn === '');
+                        echo $noText ? 'hidden' : '' ;
+                        ?>">
+                            <?php if (isset($title) && $title !== '') { ?><h2 class="mc__swiper__card__title"><?php echo $title; ?></h2><?php } ?>
+                            <?php if (isset($subtitle) && $subtitle !== '') { ?><p class="mc__swiper__card__subtitle"><?php echo $subtitle; ?></p><?php } ?>
+                            <?php if (isset($btn) && $btn !== '') { ?><span class="mc__swiper__card__btn"><?php echo $btn; ?></span><?php } ?>
                         </div>
                     </<?php echo $tag; ?>>
                 </div>

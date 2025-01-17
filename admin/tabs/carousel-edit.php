@@ -45,19 +45,27 @@ if (isset($_GET) && isset($_GET['carousel-id']) && $_GET['carousel-id'] !== '') 
         echo 'Carousel not found.';
         return ''; // Stop rendering if no carousel data is found.
     }
-    $c__name = $data->name;
+    // print_r($data);
+    $c__name = $data->car_name;
     $c__id = $data->id;
-    $c__content = $data->content;
-    // $c__styles = $data->styles;
-    // $c__params = $data->params;
-    // $c__active = $data->active;
+    $c__content = $data->car_content;
+    // $c__author = $data->car_author;
+    // $c__date = $data->car_date;
+    // $c__styles = $data->car_styles;
+    // $c__params = $data->car_params;
+    // $c_status = $data->car_status;
 }
 ?>
 <!-- My Carousel edition form -->
 <form method="post" id="mc-carousel-edit">
-    <label class="mc__carousel__name" for="carousel__name">
-        Carousel title: <input type="text" name="carousel__name" <?php echo isset($c__name) ? 'value="'.$c__name.'"' : '' ?> required>
-    </label>
+    <div class="mc__carousel__main__data">
+        <label class="mc__carousel__name" for="carousel__name">
+            Carousel title: <input type="text" name="carousel__name" <?php echo isset($c__name) ? 'value="'.$c__name.'"' : '' ?> required>
+        </label>
+        <?php if (isset($c__id)) { ?>
+            <span class="mc__carousel__shortcode">Shortcode: <pre><?php echo '[my-carousel id="'.$c__id.'"]'; ?></pre></span>
+        <?php } ?>
+    </div>
     <?php addCardBtn(); ?>
     <input type="hidden" name="carousel__id" <?php echo isset($c__id) ? 'value="'.$c__id.'"' : '' ?>>
     <ul class="mc__card--list">

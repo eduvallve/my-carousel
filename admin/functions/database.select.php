@@ -15,7 +15,7 @@ function selectCarouselData($id) {
 
 function selectAllCarouselsList() {
     $table = $GLOBALS['cfgMc']['table'];
-    $query_getAllCarousels = "SELECT id, name, active FROM $table ORDER BY id DESC";
+    $query_getAllCarousels = "SELECT $table.id, car_name, car_status, display_name AS car_author, car_date FROM $table, wp_users WHERE wp_users.ID = $table.car_author ORDER BY car_date DESC";
     $getAllCarousels = $GLOBALS['wpdb']->get_results($query_getAllCarousels);
     return $getAllCarousels;
 }

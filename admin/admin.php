@@ -8,6 +8,7 @@ require_once "functions/database.create.php";
 require_once "functions/database.insert.php";
 require_once "functions/database.update.php";
 require_once "functions/database.select.php";
+require_once "functions/database.delete.php";
 
 require_once "admin.dashboard.php";
 

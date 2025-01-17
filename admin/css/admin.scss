@@ -1,3 +1,15 @@
+@mixin pre {
+    pre {
+        margin: 0;
+        border: 1px solid #c3c4c7;
+        padding: 4px 8px;
+        width: fit-content;
+        border-radius: 3px;
+        background-color: #f7f7f7;
+        font-size: .9em;
+    }
+}
+
 .wrap h1 {
     margin: 1em 0 0 0;
     display: inline-block;
@@ -18,22 +30,42 @@
     margin-top: 24px;
 }
 
-.mc__admin--item pre {
-    margin: 0;
-    border: 1px solid #c3c4c7;
-    padding: 4px 8px;
-    width: fit-content;
-    border-radius: 3px;
-    background-color: #f7f7f7;
-    font-size: .9em;
+.mc__admin--item {
+    td {
+        vertical-align: middle;
+    }
+
+    @include pre;
 }
 
-.mc__carousel__name {
-    display: flex;
-    align-items: center;
-    margin: 1em 0 1.5em;
-    gap: .5em;
-    font-size: 1.5em;
+.mc__carousel {
+    &__main__data {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+
+        @include pre;
+    }
+
+    &__shortcode {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        flex-wrap: wrap;
+    }
+
+    &__name {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        // margin: 1em 0 1.5em;
+        gap: .5em;
+        font-size: 1.5em;
+    }
 }
 
 .mc__card {
@@ -76,6 +108,11 @@
         gap: .5em;
         flex-wrap: wrap;
         justify-content: center;
+        width: 100%;
+
+        input {
+            width: calc(100% - 56px);
+        }
 
         &[for="mc__card__img__alt"] input {
             background-color: #dfdfdf;

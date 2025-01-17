@@ -3,11 +3,13 @@ function createMyCarouselTable() {
     $table = $GLOBALS['cfgMc']['table'];
     $query_createMyCarousel_table = "CREATE TABLE IF NOT EXISTS $table (
         id int NOT NULL AUTO_INCREMENT,
-        name text NOT NULL,
-        content longtext NOT NULL,
-        styles longtext NOT NULL,
-        params longtext NOT NULL,
-        active bool NOT NULL,
+        car_name text NOT NULL,
+        car_content longtext NOT NULL,
+        car_styles longtext NOT NULL,
+        car_params longtext NOT NULL,
+        car_status bool NOT NULL,
+        car_author bigint(20) NOT NULL,
+        car_date datetime DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY (id)
     ) ENGINE=MyISAM DEFAULT CHARSET=latin1;";
     $createMyCarousel_table = $GLOBALS['wpdb']->query($GLOBALS['wpdb']-> prepare($query_createMyCarousel_table));
