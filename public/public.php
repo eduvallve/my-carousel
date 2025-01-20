@@ -12,6 +12,22 @@ function mycarousel_enqueue_public() {
 
 add_action('wp_enqueue_scripts', 'mycarousel_enqueue_public');
 
+
+/**
+ * Formatted Styles
+ */
+
+function formattedStyles($id, $c__styles) {
+    $carouselClass = ".mc__carousel--$id";
+    $lines = explode("\n", $c__styles);
+    foreach ($lines as $i => $line) {
+        if ((stripos($line, '{') !== false && stripos($line, '@') === false) || (stripos($line, ',') !== false && stripos($line, '(') === false)) {
+            $lines[$i] = $carouselClass.' '.$line;
+        }
+    }
+    return implode("\n", $lines);
+}
+
 /**
  * Layout functions
  */
@@ -58,7 +74,7 @@ function buildCards($c__content) {
 
 function buildCarousel($data) {
     ?>
-    <div class="mc__carousel" data-styles='<?php echo $data->car_styles; ?>'>
+    <div class="mc__carousel">
         <div class="swiper">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
@@ -111,6 +127,10 @@ function show_my_carousel($params) {
                     });
                 });
             </script>
+
+            <style>
+                <?php echo formattedStyles($id, $data->car_styles); ?>
+            </style>
 
             <?php
         }

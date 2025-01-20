@@ -100,13 +100,13 @@ if (isset($_GET) && isset($_GET['carousel-id']) && $_GET['carousel-id'] !== '') 
     <hr>
     <h2>2. Add settings</h2>
     <p><i>My Carousel</i> is powered by <a href="https://swiperjs.com/" target="_blank">swiper.js</a>. You can add as many customizations from its <b><a href="https://swiperjs.com/get-started" target="_blank">swiper.js documentation</a></b> <span class="dashicons dashicons-media-document"></span> in the following space:</p>
-    <textarea name="carousel__params" class="mc__carousel__params" rows="12" placeholder='<?php echo $GLOBALS['defaultParams']; ?>'><?php echo isset($c__params) ? $c__params : $GLOBALS['defaultParams'] ?></textarea>
+    <textarea name="carousel__params" class="mc__carousel__params" rows="16" placeholder='<?php echo $GLOBALS['defaultParams']; ?>'><?php echo isset($c__params) ? $c__params : $GLOBALS['defaultParams'] ?></textarea>
     <p><b>Important:</b> "<i>carousel.</i>" is the reference for the current carousel.</p>
     <?php resetParamsBtn(); ?>
     <hr>
     <h2>3. Add custom CSS</h2>
     <p><i>My Carousel</i> comes with a basic CSS. We <b>strongly recommend you</b> to add your custom code into the following space. Your designs will be awesome! Happy coding!</p>
-    <textarea name="carousel__styles" class="mc__carousel__styles" rows="12" placeholder="Your custom CSS here!"><?php echo isset($c__styles) ? $c__styles : '' ?></textarea>
+    <textarea name="carousel__styles" class="mc__carousel__styles" rows="20" placeholder="Your custom CSS here!"><?php echo isset($c__styles) ? $c__styles : '' ?></textarea>
     <div class="mc__carousel__action_buttons">
         <?php saveBtn(); ?>
     </div>

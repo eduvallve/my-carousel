@@ -99,6 +99,12 @@ body.wp-admin .mc__carousel {
 .mc__carousel__params, .mc__carousel__styles {
   width: 100%;
 }
+.mc__carousel__styles {
+  background-color: #1d2327;
+  color: lightskyblue;
+  font-family: monospace;
+  font-size: small;
+}
 
 .mc__card {
   background-color: #dfdfdf;
