@@ -221,4 +221,13 @@ body.wp-admin .mc__carousel {
   background-color: transparent;
 }
 
+.mc-not-found {
+  display: block;
+  margin-bottom: 1rem;
+}
+.mc-not-found + .page-title-action {
+  margin: 0;
+  display: inline-block;
+}
+
 /*# sourceMappingURL=admin.css.map */

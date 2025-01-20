@@ -55,15 +55,16 @@ function resetParamsBtn() {
  */
 if (isset($_GET) && isset($_GET['carousel-id']) && $_GET['carousel-id'] !== '') {
     $data = selectCarouselData($_GET['carousel-id']);
-    if ($data === '') {
-        echo 'Carousel not found.';
+    if (!isset($data)) {
+        echo '<span class="mc-not-found"><b>Oops!</b> Carousel not found!</span>
+        <a href="?page=my-carousel&tab=carousel-edit" class="page-title-action">Create New Carousel</a>';
         return ''; // Stop rendering if no carousel data is found.
     }
-    $c__name = $data->car_name;
-    $c__id = $data->id;
-    $c__content = $data->car_content;
-    $c__styles = $data->car_styles;
-    $c__params = $data->car_params;
+    $c__name = isset($data->car_name) ? $data->car_name : null;
+    $c__id = isset($data->id) ? $data->id : null;
+    $c__content = isset($data->car_content) ? $data->car_content : null;
+    $c__styles = isset($data->car_styles) ? $data->car_styles : null;
+    $c__params = isset($data->car_params) ? $data->car_params : null;
 }
 ?>
 <!-- My Carousel edition form -->

@@ -3,6 +3,14 @@
   position: relative;
   padding-bottom: 48px;
 }
+.mc__carousel--not-found {
+  display: block;
+  text-align: center;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+}
 .mc__carousel .swiper {
   overflow: visible;
 }

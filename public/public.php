@@ -95,8 +95,8 @@ function show_my_carousel($params) {
     if (!is_admin()) {
         $id = $params['id'];
         $data = selectCarouselData($id);
-        if ($data === '') {
-            echo 'Carousel not found.';
+        if (!isset($data)) {
+            echo '<span class="mc__carousel--not-found">Carousel not found. Please try another shortcode!</span>';
             return ''; // Stop rendering if no carousel data is found.
         }
 

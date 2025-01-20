@@ -10,7 +10,7 @@ function selectCarouselData($id) {
     $table = $GLOBALS['cfgMc']['table'];
     $query_getCarouselData = "SELECT * FROM $table WHERE id = $id";
     $getCarouselData = $GLOBALS['wpdb']->get_results($query_getCarouselData);
-    return $getCarouselData[0];
+    return isset($getCarouselData[0]) ? $getCarouselData[0] : null;
 }
 
 function selectAllCarouselsList() {

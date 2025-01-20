@@ -3,6 +3,15 @@
     position: relative;
     padding-bottom: 48px;
 
+    &--not-found {
+        display: block;
+        text-align: center;
+        border: 1px solid lightgrey;
+        border-radius: 8px;
+        padding: .5rem;
+        margin: .5rem 0;
+    }
+
     .swiper {
         overflow: visible;
 

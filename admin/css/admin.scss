@@ -246,3 +246,13 @@ body.wp-admin .mc__carousel {
         background-color: transparent;
     }
 }
+
+.mc-not-found {
+    display: block;
+    margin-bottom: 1rem;
+
+    & + .page-title-action {
+        margin: 0;
+        display: inline-block;
+    }
+}
