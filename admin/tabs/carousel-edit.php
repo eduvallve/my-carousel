@@ -59,15 +59,11 @@ if (isset($_GET) && isset($_GET['carousel-id']) && $_GET['carousel-id'] !== '') 
         echo 'Carousel not found.';
         return ''; // Stop rendering if no carousel data is found.
     }
-    // print_r($data);
     $c__name = $data->car_name;
     $c__id = $data->id;
     $c__content = $data->car_content;
-    // $c__author = $data->car_author;
-    // $c__date = $data->car_date;
     $c__styles = $data->car_styles;
     $c__params = $data->car_params;
-    // $c_status = $data->car_status;
 }
 ?>
 <!-- My Carousel edition form -->
@@ -84,8 +80,6 @@ if (isset($_GET) && isset($_GET['carousel-id']) && $_GET['carousel-id'] !== '') 
     <h2>1. Add cards</h2>
     <p>Add as many cards as you need</p>
     <?php addCardBtn(); ?>
-    <!-- <div class="mc__carousel__action_buttons">
-    </div> -->
     <input type="hidden" name="carousel__id" <?php echo isset($c__id) ? 'value="'.$c__id.'"' : '' ?>>
     <ul class="mc__card--list">
         <?php if(isset($c__content)) {

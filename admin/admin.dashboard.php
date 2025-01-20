@@ -10,7 +10,7 @@ function mycarousel_admin_page(){
   $tab = isset($_GET['tab']) ? $_GET['tab'] : $default_tab;
 
   ?>
-  <!-- Our admin page content should all be inside .wrap -->
+  <!-- WP admin page content should all be inside .wrap -->
   <div class="wrap">
     <div class="tab-content">
     <?php switch($tab) :

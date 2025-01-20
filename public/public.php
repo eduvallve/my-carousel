@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Add Swiper JS and CSS files
  */
@@ -11,7 +10,6 @@ function mycarousel_enqueue_public() {
 }
 
 add_action('wp_enqueue_scripts', 'mycarousel_enqueue_public');
-
 
 /**
  * Formatted Styles

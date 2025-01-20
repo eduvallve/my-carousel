@@ -17,6 +17,7 @@ function formattedData() {
 
 // Create carousel db table if it does not exist
 createMyCarouselTable();
+
 // Format content data in a JSON style
 $content = formattedData();
 
