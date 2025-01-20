@@ -6,15 +6,15 @@ $cfgMc = array(
 );
 
 
-$GLOBALS['defaultParams'] = "{
+$GLOBALS['defaultParams'] = '{
     navigation: {
-      prevEl: this.el.querySelector('.swiper-button-prev'),
-      nextEl: this.el.querySelector('.swiper-button-next'),
+      prevEl: carousel.querySelector(".swiper-button-prev"),
+      nextEl: carousel.querySelector(".swiper-button-next"),
     },
     mousewheel: true,
     pagination: {
-      el: this.el.querySelector('.swiper-pagination'),
-      type: 'fraction',
+      el: carousel.querySelector(".swiper-pagination"),
+      type: "fraction",
     },
     scrollbar: {
       enabled: false,
@@ -36,7 +36,7 @@ $GLOBALS['defaultParams'] = "{
         spaceBetween: 16,
       }
     },
-  }";
+  }';
 
 // function successMessage($msg) {
 //     echo "<div class='md-msg md-msg__success'>$msg</div>";

@@ -38,7 +38,7 @@ function regularCard($card) {
 
 function resetParamsBtn() {
     ?>
-    <li class="page-title-action mc__reset--params" data-params="<?php echo $GLOBALS['defaultParams'] ?>"><span class="dashicons dashicons-image-rotate"></span> Reset to default settings</li>
+    <li class="page-title-action mc__reset--params" data-params='<?php echo $GLOBALS['defaultParams'] ?>'><span class="dashicons dashicons-image-rotate"></span> Reset to default settings</li>
     <?php
 }
 
@@ -100,8 +100,8 @@ if (isset($_GET) && isset($_GET['carousel-id']) && $_GET['carousel-id'] !== '') 
     <hr>
     <h2>2. Add settings</h2>
     <p><i>My Carousel</i> is powered by <a href="https://swiperjs.com/" target="_blank">swiper.js</a>. You can add as many customizations from its <b><a href="https://swiperjs.com/get-started" target="_blank">swiper.js documentation</a></b> <span class="dashicons dashicons-media-document"></span> in the following space:</p>
-    <textarea name="carousel__params" class="mc__carousel__params" rows="12" placeholder="<?php echo $GLOBALS['defaultParams']; ?>"><?php echo isset($c__params) ? $c__params : $GLOBALS['defaultParams'] ?></textarea>
-    <p><b>Important:</b> "<i>this.el</i>" is the reference for the current carousel.</p>
+    <textarea name="carousel__params" class="mc__carousel__params" rows="12" placeholder='<?php echo $GLOBALS['defaultParams']; ?>'><?php echo isset($c__params) ? $c__params : $GLOBALS['defaultParams'] ?></textarea>
+    <p><b>Important:</b> "<i>carousel.</i>" is the reference for the current carousel.</p>
     <?php resetParamsBtn(); ?>
     <hr>
     <h2>3. Add custom CSS</h2>
