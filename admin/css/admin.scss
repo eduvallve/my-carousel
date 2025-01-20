@@ -42,6 +42,24 @@ body.wp-admin .mc__carousel {
     @include pre;
 }
 
+.page-title-action.mc__reset--params {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: .25rem;
+
+    &:active {
+        display: flex;
+    }
+
+    .dashicons {
+        font-size: 1rem;
+        line-height: 1rem;
+        display: flex;
+        align-items: center;
+    }
+}
+
 .mc__carousel {
     &__main__data {
         display: flex;

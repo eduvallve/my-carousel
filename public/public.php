@@ -17,6 +17,8 @@ function buildCards($id) {
     }
 
     $c__content = $data->car_content;
+    $c__params = $data->car_params;
+    // $c__styles = $data->car_styles;
 
     if(isset($c__content)) {
         $cards = json_decode($c__content);

@@ -8,9 +8,7 @@
 * Author URI: https://eduvallve.com
 **/
 
-$cfgMc = array(
-    'table' => $GLOBALS['wpdb']->prefix."my_carousel",
-);
+require_once 'my-carousel.variables.php';
 
 /**
  * Public (Front-office)

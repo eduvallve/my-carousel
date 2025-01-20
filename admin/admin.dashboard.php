@@ -1,6 +1,4 @@
 <?php
-require_once "admin.functions.php";
-
 function mycarousel_admin_page(){
   // check user capabilities
   if ( ! current_user_can( 'manage_options' ) ) {

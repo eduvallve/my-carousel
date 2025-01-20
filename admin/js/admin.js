@@ -15,6 +15,10 @@ const cfgMcAdmin = {
             showHideBtn: '.mc__card__showhide',
             showHideStates: '.mc__card__showhide__state',
             cardVisibility: '.mc__card__visibility'
+        },
+        dashboard: {
+            paramsField: '.mc__carousel__params',
+            resetParams: '.mc__reset--params',
         }
     },
      classes: {
@@ -49,6 +53,8 @@ class EditMcCarousel extends BasicMcComponent {
         this.removeCardBtns = this.el.querySelectorAll(cfgMcAdmin.selectors.card.removeBtn);
         this.showHideBtns = this.el.querySelectorAll(cfgMcAdmin.selectors.card.showHideBtn);
         this.cardList = this.el.querySelector(cfgMcAdmin.selectors.carousel.cardList);
+        this.paramsField = this.el.querySelector(cfgMcAdmin.selectors.dashboard.paramsField);
+        this.resetParamsBtn = this.el.querySelector(cfgMcAdmin.selectors.dashboard.resetParams);
     }
 
     addEventListeners() {
@@ -62,6 +68,7 @@ class EditMcCarousel extends BasicMcComponent {
         this.showHideBtns.forEach(showHideBtn => {
             showHideBtn.addEventListener('click', e => this.toggleShowHide(e.target));
         })
+        this.resetParamsBtn.addEventListener('click', e => this.resetParams(e.target.dataset.params));
     }
 
     addCard() {
@@ -104,6 +111,10 @@ class EditMcCarousel extends BasicMcComponent {
             li.innerHTML = card;
             this.cardList.append(li);
         });
+    }
+
+    resetParams(params) {
+        this.paramsField.value = params;
     }
 }
 

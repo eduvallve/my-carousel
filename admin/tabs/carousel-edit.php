@@ -36,37 +36,11 @@ function regularCard($card) {
     include plugin_dir_path( __DIR__ )."components/card.php";
 }
 
-$defaultParams = "{
-      navigation: {
-        prevEl: this.el.querySelector('.swiper-button-prev'),
-        nextEl: this.el.querySelector('.swiper-button-next'),
-      },
-      mousewheel: true,
-      pagination: {
-        el: this.el.querySelector('.swiper-pagination'),
-        type: 'fraction',
-      },
-      scrollbar: {
-        enabled: false,
-      },
-      keyboard: {
-        enabled: true,
-      },
-      breakpoints: {
-        0: {
-          slidesPerView: 2,
-          spaceBetween: 10,
-        },
-        600: {
-          slidesPerView: 3,
-          spaceBetween: 16,
-        },
-        992: {
-          slidesPerView: 4,
-          spaceBetween: 16,
-        }
-      },
-    }";
+function resetParamsBtn() {
+    ?>
+    <li class="page-title-action mc__reset--params" data-params="<?php echo $GLOBALS['defaultParams'] ?>"><span class="dashicons dashicons-image-rotate"></span> Reset to default settings</li>
+    <?php
+}
 
 ?>
 
@@ -126,8 +100,9 @@ if (isset($_GET) && isset($_GET['carousel-id']) && $_GET['carousel-id'] !== '') 
     <hr>
     <h2>2. Add settings</h2>
     <p><i>My Carousel</i> is powered by <a href="https://swiperjs.com/" target="_blank">swiper.js</a>. You can add as many customizations from its <b><a href="https://swiperjs.com/get-started" target="_blank">swiper.js documentation</a></b> <span class="dashicons dashicons-media-document"></span> in the following space:</p>
-    <textarea name="carousel__params" class="mc__carousel__params" rows="12" placeholder="<?php echo $defaultParams; ?>"><?php echo isset($c__params) ? $c__params : $defaultParams ?></textarea>
+    <textarea name="carousel__params" class="mc__carousel__params" rows="12" placeholder="<?php echo $GLOBALS['defaultParams']; ?>"><?php echo isset($c__params) ? $c__params : $GLOBALS['defaultParams'] ?></textarea>
     <p><b>Important:</b> "<i>this.el</i>" is the reference for the current carousel.</p>
+    <?php resetParamsBtn(); ?>
     <hr>
     <h2>3. Add custom CSS</h2>
     <p><i>My Carousel</i> comes with a basic CSS. We <b>strongly recommend you</b> to add your custom code into the following space. Your designs will be awesome! Happy coding!</p>
