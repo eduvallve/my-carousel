@@ -21,7 +21,8 @@ function formattedStyles($id, $c__styles) {
     $carouselClass = ".mc__carousel--$id";
     $lines = explode("\n", $c__styles);
     foreach ($lines as $i => $line) {
-        if ((stripos($line, '{') !== false && stripos($line, '@') === false) || (stripos($line, ',') !== false && stripos($line, '(') === false)) {
+        $conditions = (stripos($line, '{') !== false && stripos($line, '@') === false) || (stripos($line, ',') !== false && stripos($line, '(') === false);
+        if ($conditions) {
             $lines[$i] = $carouselClass.' '.$line;
         }
     }
