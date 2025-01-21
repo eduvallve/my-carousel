@@ -27,4 +27,8 @@
             transform: translateY(50%);
         }
     }
+
+    .elementor-editor-active & {
+        display: none;
+    }
 }

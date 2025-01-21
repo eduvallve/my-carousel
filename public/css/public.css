@@ -22,5 +22,8 @@
   top: unset;
   transform: translateY(50%);
 }
+.elementor-editor-active .mc__carousel {
+  display: none;
+}
 
 /*# sourceMappingURL=public.css.map */

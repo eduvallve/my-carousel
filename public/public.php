@@ -89,16 +89,10 @@ function buildCarousel($data) {
     <?php
 }
 
-function is_elementor_edit_mode() {
-    return defined( 'ELEMENTOR_EDIT' );
-}
-
 $GLOBALS['shownCarousels'] = [];
 
 function show_my_carousel($params) {
-    // echo 'is admin? '.is_admin();
-    // echo 'is elementor? '.is_elementor_edit_mode();
-    if (!is_admin() || (is_admin() && is_elementor_edit_mode())) {
+    if (!is_admin()) {
         $id = $params['id'];
         $data = selectCarouselData($id);
         if (!isset($data)) {
