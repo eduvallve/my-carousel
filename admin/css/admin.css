@@ -230,4 +230,16 @@ body.wp-admin .mc__carousel {
   display: inline-block;
 }
 
+.mc__admin--signature {
+  display: block;
+  text-align: end;
+  padding: 0.5em 0;
+  font-size: smaller;
+  opacity: 0.85;
+}
+.mc__admin--signature .dashicons {
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
 /*# sourceMappingURL=admin.css.map */

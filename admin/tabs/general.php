@@ -39,3 +39,5 @@ function headingCells() {
         </table>
     </div>
 </div>
+<span class="mc__admin--signature">Developed with <span class="dashicons dashicons-heart
+"></span> by <a href="https://eduvallve.com/portfolio/my-carousel/" target="_blank">eduvallve</a></span>
