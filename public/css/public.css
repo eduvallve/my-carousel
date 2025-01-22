@@ -22,6 +22,9 @@
   top: unset;
   transform: translateY(50%);
 }
+.mc__carousel .swiper-button-next, .mc__carousel .swiper-button-prev, .mc__carousel .swiper-container-rtl .swiper-button-prev, .mc__carousel .swiper-container-rtl .swiper-button-next {
+  background-image: none;
+}
 .elementor-editor-active .mc__carousel {
   display: none;
 }

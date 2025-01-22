@@ -27,6 +27,14 @@ function formattedStyles($id, $c__styles) {
     return implode("\n", $lines);
 }
 
+function isCurrentPath($url) {
+    /**
+     * Know if the current card is pointing to the page where the user is.
+     */
+    $current_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    return $current_link === $url ;
+}
+
 /**
  * Layout functions
  */
@@ -49,7 +57,7 @@ function buildCards($c__content) {
                 $tag = isset($url) && $url !== '' ? 'a' : 'div';
                 ?>
                     <div class="swiper-slide">
-                        <<?php echo $tag; ?> class="mc__swiper__card" <?php echo isset($url) && $url !== '' ? "href='${url}'" : '' ?>>
+                        <<?php echo $tag; ?> class="mc__swiper__card<?php echo isCurrentPath($url) ? ' mc__swiper__card--current' : '' ; ?>" <?php echo isset($url) && $url !== '' ? "href='${url}'" : '' ?>>
                             <?php if (isset($img) && $img !== '') {  ?>
                                 <div class="mc__swiper__card__img">
                                     <img src="<?php echo $img; ?>" alt="<?php echo isset($alt) ? $alt : ''; ?>" class="mc__swiper__card__asset">
@@ -101,7 +109,7 @@ function show_my_carousel($params) {
         }
 
         /**
-         * Place the carousel wjere the shortcode is
+         * Place the carousel where the shortcode is
          */
         ?>
             <div class="mc__carousel--<?php echo $id; ?>">

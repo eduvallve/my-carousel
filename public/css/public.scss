@@ -26,6 +26,13 @@
             top: unset;
             transform: translateY(50%);
         }
+
+        &-button-next,
+        &-button-prev,
+        &-container-rtl .swiper-button-prev,
+        &-container-rtl .swiper-button-next {
+            background-image: none;
+        }
     }
 
     .elementor-editor-active & {
